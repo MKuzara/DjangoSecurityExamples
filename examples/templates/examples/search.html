@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row my-5">
+    <div class="col-md-8 offset-md-2">
+        <form method="get" action="">
+            <input class="form-control" name="q" type="text" placeholder="Find post" {% if q %}value="{{q|safe}}"{% endif %}>
+            <button type="submit" class="btn btn-primary w-100">Search</button>
+        </form>
+        {% if q %}
+            <p class="mt-5">Result for query "{{q}}".</p><!-- TUTAJ TEZ MOZNA DAC {{q|safe}}-->
+        {% endif %}
+        {% if posts %}
+            <ul class="list-group">
+            {% for post in posts %}
+                <li class="list-group-item"><a href="{% url 'xss:post' post.id %}">{{post.title}}</a></li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}
+
+
+<input ... value=""><script>alert(1);</script>">

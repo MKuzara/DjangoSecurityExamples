@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row mt-5">
+    <div class="col-md-2 offset-md-1">
+        <ul class="nav nav-pills text-center">
+            </li class="nav-item">
+                <a class="nav-link active w-100" href="{% url 'xss:search' %}">Search</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-8">
+        <ul class="list-group">
+            {% for post in posts %}
+            <li class="list-group-item">
+                <h3>{{post.title}}</h3>
+                <p>{{post.overview}}</p>
+                <a href="{% url 'xss:post' post.id %}">View</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock content %}
+
+

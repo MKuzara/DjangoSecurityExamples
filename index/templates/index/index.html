@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row mt-5">
+    <div class="col-md-6 offset-md-3"> 
+        <ul>
+            <li><a href="{% url 'login:login' %}">Login example v1</a> -- <a href="{% url 'login:login_v2' %}">Login example v2</a></li>
+            <li><a href="{% url 'xss:list' %}">XSS</a></li>
+            <li><a href="{% url 'sql:index' %}">SQL Injection</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock content %}
